@@ -200,7 +200,6 @@ class App extends React.Component {
             <center>
               <hr />
             </center>
-            {parse(strings.info)}
           </section>
         </main>
         {/* Footer */}

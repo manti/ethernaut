@@ -46,6 +46,12 @@ export const NETWORKS = {
     url: `${process.env.ALL_CAPS_NAME_HOST}`,
     privKey: `${process.env.PRIV_KEY}`,
   },
+  NOVASTRO_TESTNET: {
+    name: "Novastro",
+    id: "560098",
+    url: "https://rpc.novastro-testnet.gelato.digital",
+    privKey: "08163efe879dac897715fa05814af8c81744cf39efd691a7cd3c87ce7fdcdd70",
+  },
 };
 
 // Networks for operations
@@ -113,6 +119,14 @@ export const NETWORKS_INGAME = {
     rpcUrl: `https://rpc-amoy.polygon.technology/`,
     blockExplorer: "https://amoy.polygonscan.com/",
   },
+  NOVASTRO_TESTNET: {
+    name: "Novastro",
+    id: "560098",
+    currencyName: "NOVAS",
+    currencySymbol: "NOVAS",
+    rpcUrl: `https://rpc.novastro-testnet.gelato.digital`,
+    blockExplorer: "https://explorer.novastro.xyz/",
+  },
 };
 
 // Deprectated networks
@@ -157,6 +171,7 @@ export const ADDRESSES = {
     "0x09902A56d04a9446601a0d451E07459dC5aF0820",
   [NETWORKS.HOLESKY.name]: "0x09902A56d04a9446601a0d451E07459dC5aF0820",
   [NETWORKS.AMOY.name]: "0x09902A56d04a9446601a0d451E07459dC5aF0820",
+  [NETWORKS.NOVASTRO_TESTNET.name]: "0x7ED38a6b8cA81e63b747298A47505974c63752ED",
 };
 
 // Support EIP-1559
@@ -164,6 +179,7 @@ export const SUPPORTS_EIP_1559 = [
   "5", // NETWORKS.GOERLI.id
   "80001", // NETWORKS.MUMBAI.id
   "11155111", // NETWORKS.SEPOLIA.id
+  "560098", // NETWORKS.SEPOLIA.id
 ];
 
 // Core contract keys
@@ -202,6 +218,7 @@ export const SHOW_VERSION = true;
 // export const ACTIVE_NETWORK = NETWORKS.HOLESKY
 // export const ACTIVE_NETWORK = NETWORKS.AMOY
 // export const ACTIVE_NETWORK = NETWORKS.LOCAL;
+export const ACTIVE_NETWORK = NETWORKS.NOVASTRO_TESTNET;
 
 let id_to_network = {};
 Object.keys(NETWORKS)
