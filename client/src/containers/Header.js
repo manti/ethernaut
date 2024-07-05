@@ -373,34 +373,6 @@ class Header extends React.Component {
                     />
                   </div>
                 </div>
-
-                <div className="single-dropdown">
-                  <p onClick={() => this.setActiveTab(1)}>
-                    <i className="fas fa-globe-americas"></i>
-                    <span>{strings.Languages}</span>
-                  </p>
-                  <div className={this.getDDClassName(1)}>
-                    {Object.keys(LANGUAGES_MAP).map((languageString, index) => (
-                      <div
-                        key={index}
-                        onClick={(e) => {
-                          this.changeLanguage(e, languageString);
-                        }}
-                        className="dropdown-pill"
-                      >
-                        <a href="/">{LANGUAGES_MAP[languageString]}</a>
-                      </div>
-                    ))}
-                    <div className="dropdown-pill">
-                      <a
-                        className="contr"
-                        href="https://github.com/openzeppelin/ethernaut#modify-or-add-new-languages"
-                      >
-                        {strings.contributeTranslation}
-                      </a>
-                    </div>
-                  </div>
-                </div>
               </ul>
               {/* dropdown content */}
             </div>

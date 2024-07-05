@@ -126,14 +126,16 @@ class App extends React.Component {
         <main>
           {/* Main title and buttons */}
           <section className="titles">
-            <a href={constants.PATH_ROOT}>
-              <img
-                id="the-ethernaut"
-                src="../../imgs/the-ethernaut.svg"
-                alt="The-Ethernaut"
-                className="the-ethernaut"
-              />
-            </a>
+            <div
+              style={{
+                fontSize: "120px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              DevAstro
+            </div>
             <img
               src="../../imgs/arrow.svg"
               id="arrow"
