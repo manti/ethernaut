@@ -14,7 +14,7 @@ import {
   networkOnDeprecationOrDeprecated,
   isDeprecatedNetwork,
   deprecationStatus,
-  deprecationDate
+  deprecationDate,
 } from "../utils/networkDeprecation";
 
 class App extends React.Component {
@@ -66,7 +66,7 @@ class App extends React.Component {
       (key) => key !== "LOCAL" && key !== "UNDEFINED"
     );
 
-    // change the network to Sepolia network
+    // change the network to Novastro network
     async function switchToSepolia() {
       let elements = document.querySelectorAll(".progress-bar-wrapper");
       const deployWindow = document.querySelectorAll(".deploy-window-bg");
@@ -75,9 +75,9 @@ class App extends React.Component {
           method: "wallet_switchEthereumChain",
           params: [
             {
-              chainId: `0x${Number(constants.NETWORKS.SEPOLIA.id).toString(
-                16
-              )}`,
+              chainId: `0x${Number(
+                constants.NETWORKS.NOVASTRO_TESTNET.id
+              ).toString(16)}`,
             },
           ], //if on wrong network giving option to switch to sepolia network.
         });
@@ -175,7 +175,9 @@ class App extends React.Component {
                 {/*deprecation window*/}
                 <h1>{randBadIcon()}</h1>
                 <h1>
-                  {isDeprecatedNetwork(this.state.chainId)? strings.deprecatedNetwork : strings.networkBeingDeprecated}
+                  {isDeprecatedNetwork(this.state.chainId)
+                    ? strings.deprecatedNetwork
+                    : strings.networkBeingDeprecated}
                 </h1>
                 <br />
                 {strings.deployMessage}
@@ -184,11 +186,11 @@ class App extends React.Component {
                   <button className="buttons" onClick={switchToSepolia}>
                     {strings.switchToSepolia}
                   </button>
-                  {!isDeprecatedNetwork(this.state.chainId) && 
+                  {!isDeprecatedNetwork(this.state.chainId) && (
                     <button className="buttons" onClick={continueAnyway}>
                       {strings.continueAnyway}
                     </button>
-                  }
+                  )}
                 </div>
               </div>
             )}
@@ -203,7 +205,6 @@ class App extends React.Component {
           </section>
         </main>
         {/* Footer */}
-        <Footer></Footer>
       </div>
     );
   }
@@ -222,16 +223,27 @@ function mapDispatchToProps(dispatch) {
 
 function supportedNetworksList(_supportedNetworks) {
   return (
-  <ul>
-    {_supportedNetworks.map((network, idx) => (
-      <li key={idx}>
-        {network}
-        {networkOnDeprecationOrDeprecated(constants.NETWORKS[network].id) 
-          && " (" + deprecationStatus(constants.NETWORKS[network].id) + 
-          " on " + deprecationDate(constants.NETWORKS[network].id) + ")"}
-      </li>
-    ))}
-  </ul>)
+    <ul>
+      {_supportedNetworks.map((network, idx) => (
+        <>
+          {network === "NOVASTRO_TESTNET" && (
+            <li key={idx}>
+              {console.log(network)}
+              {network}
+              {networkOnDeprecationOrDeprecated(
+                constants.NETWORKS[network].id
+              ) &&
+                " (" +
+                  deprecationStatus(constants.NETWORKS[network].id) +
+                  " on " +
+                  deprecationDate(constants.NETWORKS[network].id) +
+                  ")"}
+            </li>
+          )}
+        </>
+      ))}
+    </ul>
+  );
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

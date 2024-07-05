@@ -40,7 +40,6 @@ class Help extends React.Component {
           </section>
         </main>
         {/* Footer */}
-        <Footer></Footer>
       </div>
     );
   }

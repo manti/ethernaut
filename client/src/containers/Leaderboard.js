@@ -143,7 +143,6 @@ function Leaderboard() {
           />
         </div>
       </div>
-      <Footer />
     </main>
   );
 }

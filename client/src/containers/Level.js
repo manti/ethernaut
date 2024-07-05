@@ -323,7 +323,6 @@ class Level extends React.Component {
         </main>
 
         {/* Footer */}
-        <Footer></Footer>
       </main>
     );
   }

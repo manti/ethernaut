@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { loadTranslations } from "../../utils/translations";
 import { randBadIcon } from "../../utils/^^";
-import "../../styles/app.css"
+import "../../styles/app.css";
 import Footer from "../common/Footer";
 
 class NotFound404 extends React.Component {
@@ -20,7 +20,6 @@ class NotFound404 extends React.Component {
           <h4 className="page-not-found-text">{strings.PageNotFoundText}</h4>
         </main>
         {/* Footer */}
-        <Footer></Footer>
       </div>
     );
   }
