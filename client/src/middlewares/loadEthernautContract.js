@@ -35,7 +35,7 @@ const loadEthernautContract = (store) => (next) => (action) => {
       );
 
       // for player interaction via the browser's console
-      window.devastro = instance;
+      window.Devastro = instance;
 
       action.contract = instance;
 
